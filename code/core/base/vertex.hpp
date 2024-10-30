@@ -7,8 +7,8 @@ namespace editor::base
 {
     struct vertex
     {
-         engine::base::vec3 position;
-         engine::base::vec3 extra;
+        engine::base::vec3 position;
+        engine::base::vec3 extra;
     };
 
     using geometry = engine::base::geometry<vertex>;
