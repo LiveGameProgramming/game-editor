@@ -33,10 +33,43 @@ namespace editor::base
         return
         {
             {
-                { { }, { } }
+                { { -hx, -hy,  hz }, vec3::front() },
+                { {  hx, -hy,  hz }, vec3::front() },
+                { {  hx,  hy,  hz }, vec3::front() },
+                { { -hx,  hy,  hz }, vec3::front() },
+
+                { { -hx, -hy, -hz }, vec3::back() },
+                { { -hx,  hy, -hz }, vec3::back() },
+                { {  hx,  hy, -hz }, vec3::back() },
+                { {  hx, -hy, -hz }, vec3::back() },
+
+                { { -hx,  hy,  hz }, vec3::left() },
+                { { -hx,  hy, -hz }, vec3::left() },
+                { { -hx, -hy, -hz }, vec3::left() },
+                { { -hx, -hy,  hz }, vec3::left() },
+
+                { {  hx,  hy,  hz }, vec3::right() },
+                { {  hx, -hy,  hz }, vec3::right() },
+                { {  hx, -hy, -hz }, vec3::right() },
+                { {  hx,  hy, -hz }, vec3::right() },
+
+                { { -hx,  hy, -hz }, vec3::up() },
+                { { -hx,  hy,  hz }, vec3::up() },
+                { {  hx,  hy,  hz }, vec3::up() },
+                { {  hx,  hy, -hz }, vec3::up() },
+
+                { { -hx, -hy, -hz }, vec3::down() },
+                { {  hx, -hy, -hz }, vec3::down() },
+                { {  hx, -hy,  hz }, vec3::down() },
+                { { -hx, -hy,  hz }, vec3::down() },
             },
             {
-                { }
+                {  0,  1,  2 }, {  2,  3,  0 }, // front face
+                {  4,  5,  6 }, {  6,  7,  4 }, //  back face
+                {  8,  9, 10 }, { 10, 11,  8 }, //  left face
+                { 12, 13, 14 }, { 14, 15, 12 }, // right face
+                { 16, 17, 18 }, { 18, 19, 16 }, //    up face
+                { 20, 21, 22 }, { 22, 23, 20 }  //  down face
             }
         };
     }
