@@ -2,8 +2,6 @@
 
 namespace editor
 {
-    using namespace engine::base;
-
     geometry Primitives::create_plane(const float x, const float z)
     {
         const float hx = x / 2.0f;
@@ -12,10 +10,10 @@ namespace editor
         return
         {
             {
-                { { -hx, 0.0f,  hz }, vec3::up() },
-                { {  hx, 0.0f,  hz }, vec3::up() },
-                { {  hx, 0.0f, -hz }, vec3::up() },
-                { { -hx, 0.0f, -hz }, vec3::up() },
+                { { -hx, 0.0f,  hz }, engine::vec3::up() },
+                { {  hx, 0.0f,  hz }, engine::vec3::up() },
+                { {  hx, 0.0f, -hz }, engine::vec3::up() },
+                { { -hx, 0.0f, -hz }, engine::vec3::up() },
             },
             {
                 { 0, 1, 2 }, //  first triangle
@@ -33,35 +31,35 @@ namespace editor
         return
         {
             {
-                { { -hx, -hy,  hz }, vec3::front() },
-                { {  hx, -hy,  hz }, vec3::front() },
-                { {  hx,  hy,  hz }, vec3::front() },
-                { { -hx,  hy,  hz }, vec3::front() },
+                { { -hx, -hy,  hz }, engine::vec3::front() },
+                { {  hx, -hy,  hz }, engine::vec3::front() },
+                { {  hx,  hy,  hz }, engine::vec3::front() },
+                { { -hx,  hy,  hz }, engine::vec3::front() },
 
-                { { -hx, -hy, -hz }, vec3::back() },
-                { { -hx,  hy, -hz }, vec3::back() },
-                { {  hx,  hy, -hz }, vec3::back() },
-                { {  hx, -hy, -hz }, vec3::back() },
+                { { -hx, -hy, -hz }, engine::vec3::back() },
+                { { -hx,  hy, -hz }, engine::vec3::back() },
+                { {  hx,  hy, -hz }, engine::vec3::back() },
+                { {  hx, -hy, -hz }, engine::vec3::back() },
 
-                { { -hx,  hy,  hz }, vec3::left() },
-                { { -hx,  hy, -hz }, vec3::left() },
-                { { -hx, -hy, -hz }, vec3::left() },
-                { { -hx, -hy,  hz }, vec3::left() },
+                { { -hx,  hy,  hz }, engine::vec3::left() },
+                { { -hx,  hy, -hz }, engine::vec3::left() },
+                { { -hx, -hy, -hz }, engine::vec3::left() },
+                { { -hx, -hy,  hz }, engine::vec3::left() },
 
-                { {  hx,  hy,  hz }, vec3::right() },
-                { {  hx, -hy,  hz }, vec3::right() },
-                { {  hx, -hy, -hz }, vec3::right() },
-                { {  hx,  hy, -hz }, vec3::right() },
+                { {  hx,  hy,  hz }, engine::vec3::right() },
+                { {  hx, -hy,  hz }, engine::vec3::right() },
+                { {  hx, -hy, -hz }, engine::vec3::right() },
+                { {  hx,  hy, -hz }, engine::vec3::right() },
 
-                { { -hx,  hy, -hz }, vec3::up() },
-                { { -hx,  hy,  hz }, vec3::up() },
-                { {  hx,  hy,  hz }, vec3::up() },
-                { {  hx,  hy, -hz }, vec3::up() },
+                { { -hx,  hy, -hz }, engine::vec3::up() },
+                { { -hx,  hy,  hz }, engine::vec3::up() },
+                { {  hx,  hy,  hz }, engine::vec3::up() },
+                { {  hx,  hy, -hz }, engine::vec3::up() },
 
-                { { -hx, -hy, -hz }, vec3::down() },
-                { {  hx, -hy, -hz }, vec3::down() },
-                { {  hx, -hy,  hz }, vec3::down() },
-                { { -hx, -hy,  hz }, vec3::down() },
+                { { -hx, -hy, -hz }, engine::vec3::down() },
+                { {  hx, -hy, -hz }, engine::vec3::down() },
+                { {  hx, -hy,  hz }, engine::vec3::down() },
+                { { -hx, -hy,  hz }, engine::vec3::down() },
             },
             {
                 {  0,  1,  2 }, {  2,  3,  0 }, // front face
