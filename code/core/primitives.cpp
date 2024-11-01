@@ -113,8 +113,8 @@ namespace editor
                 const uint32_t bottom_left  = (i + 1) * next + j;
                 const uint32_t bottom_right = bottom_left + 1;
 
-                sphere.faces.emplace_back(top_left, bottom_left, top_right);
-                sphere.faces.emplace_back(top_right, bottom_left, bottom_right);
+                sphere.faces.emplace_back(top_left,  top_right,    bottom_left);
+                sphere.faces.emplace_back(top_right, bottom_right, bottom_left);
             }
         }
 
