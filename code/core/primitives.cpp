@@ -1,6 +1,6 @@
 #include "primitives.hpp"
 
-namespace editor::base
+namespace editor
 {
     using namespace engine::base;
 

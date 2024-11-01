@@ -5,7 +5,7 @@
 
 #include "primitives/triangle.hpp"
 
-namespace editor::base
+namespace editor
 {
     struct vertex
     {

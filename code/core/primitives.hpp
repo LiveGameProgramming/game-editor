@@ -2,7 +2,7 @@
 
 #include "vertex.hpp"
 
-namespace editor::base
+namespace editor
 {
     class Primitives
     {
