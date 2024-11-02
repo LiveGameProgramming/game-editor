@@ -73,15 +73,15 @@ namespace editor
         };
     }
 
-    geometry Primitives::create_sphere(const uint32_t segments, const float radius)
+    geometry Primitives::create_sphere(const uint32_t segments, const uint32_t rings, const float radius)
     {
         geometry sphere;
 
         const float hr    = radius / 2.0f;
-        const float stack = engine::math::pi() / static_cast<float>(segments);
+        const float stack = engine::math::pi() / static_cast<float>(rings);
         const float slice = engine::math::pi() / static_cast<float>(segments) * 2.0f;
 
-        for (uint32_t i = 0; i <= segments; ++i)
+        for (uint32_t i = 0; i <= rings; ++i)
         {
             const float phi = stack * static_cast<float>(i);
 
@@ -102,7 +102,7 @@ namespace editor
             }
         }
 
-        for (uint32_t i = 0; i < segments; ++i)
+        for (uint32_t i = 0; i < rings; ++i)
         {
             for (uint32_t j = 0; j <  segments; ++j)
             {
