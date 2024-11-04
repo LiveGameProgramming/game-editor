@@ -10,7 +10,7 @@ namespace editor
     struct vertex
     {
         engine::vec3 position;
-        engine::vec3 extra;
+        engine::vec3 extra; // normal | color
     };
 
     using geometry = engine::geometry<vertex, engine::primitives::triangle>;
