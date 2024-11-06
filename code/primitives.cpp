@@ -1,5 +1,5 @@
 #include "primitives.hpp"
-#include "math/functions.hpp"
+#include "functions.hpp"
 
 namespace editor
 {
@@ -78,15 +78,15 @@ namespace editor
         geometry sphere;
 
         const float hr    = radius / 2.0f;
-        const float stack = engine::math::pi() / static_cast<float>(rings);
-        const float slice = engine::math::pi() / static_cast<float>(segments) * 2.0f;
+        const float stack = engine::pi() / static_cast<float>(rings);
+        const float slice = engine::pi() / static_cast<float>(segments) * 2.0f;
 
         for (uint32_t i = 0; i <= rings; ++i)
         {
             const float phi = stack * static_cast<float>(i);
 
-            const float sin_phi = hr * engine::math::sin(phi);
-            const float cos_phi = hr * engine::math::cos(phi);
+            const float sin_phi = hr * engine::sin(phi);
+            const float cos_phi = hr * engine::cos(phi);
 
             for (uint32_t j = 0; j <= segments; ++j)
             {
@@ -94,8 +94,8 @@ namespace editor
 
                 const engine::vec3 position
                 {
-                    sin_phi * engine::math::cos(theta), cos_phi,
-                    sin_phi * engine::math::sin(theta),
+                    sin_phi * engine::cos(theta), cos_phi,
+                    sin_phi * engine::sin(theta),
                 };
 
                 sphere.vertices.emplace_back(position, position.normalized());
