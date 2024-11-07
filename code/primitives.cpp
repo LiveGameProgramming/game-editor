@@ -5,16 +5,16 @@ namespace editor
 {
     geometry Primitives::create_plane(const float x, const float z)
     {
-        const float hx = x / 2.0f;
-        const float hz = z / 2.0f;
+        const float half_x = x / 2.0f;
+        const float half_z = z / 2.0f;
 
         return
         {
             {
-                { { -hx, 0.0f,  hz }, engine::vec3::up() },
-                { {  hx, 0.0f,  hz }, engine::vec3::up() },
-                { {  hx, 0.0f, -hz }, engine::vec3::up() },
-                { { -hx, 0.0f, -hz }, engine::vec3::up() },
+                { { -half_x, 0.0f,  half_z }, engine::vec3::up() },
+                { {  half_x, 0.0f,  half_z }, engine::vec3::up() },
+                { {  half_x, 0.0f, -half_z }, engine::vec3::up() },
+                { { -half_x, 0.0f, -half_z }, engine::vec3::up() },
             },
             {
                 { 0, 1, 2 }, //  first triangle
@@ -25,42 +25,42 @@ namespace editor
 
     geometry Primitives::create_box(const float x, const float y, const float z)
     {
-        const float hx = x / 2.0f;
-        const float hy = y / 2.0f;
-        const float hz = z / 2.0f;
+        const float half_x = x / 2.0f;
+        const float half_y = y / 2.0f;
+        const float half_z = z / 2.0f;
 
         return
         {
             {
-                { { -hx, -hy,  hz }, engine::vec3::front() },
-                { {  hx, -hy,  hz }, engine::vec3::front() },
-                { {  hx,  hy,  hz }, engine::vec3::front() },
-                { { -hx,  hy,  hz }, engine::vec3::front() },
+                { { -half_x, -half_y,  half_z }, engine::vec3::front() },
+                { {  half_x, -half_y,  half_z }, engine::vec3::front() },
+                { {  half_x,  half_y,  half_z }, engine::vec3::front() },
+                { { -half_x,  half_y,  half_z }, engine::vec3::front() },
 
-                { { -hx, -hy, -hz }, engine::vec3::back() },
-                { { -hx,  hy, -hz }, engine::vec3::back() },
-                { {  hx,  hy, -hz }, engine::vec3::back() },
-                { {  hx, -hy, -hz }, engine::vec3::back() },
+                { { -half_x, -half_y, -half_z }, engine::vec3::back() },
+                { { -half_x,  half_y, -half_z }, engine::vec3::back() },
+                { {  half_x,  half_y, -half_z }, engine::vec3::back() },
+                { {  half_x, -half_y, -half_z }, engine::vec3::back() },
 
-                { { -hx,  hy,  hz }, engine::vec3::left() },
-                { { -hx,  hy, -hz }, engine::vec3::left() },
-                { { -hx, -hy, -hz }, engine::vec3::left() },
-                { { -hx, -hy,  hz }, engine::vec3::left() },
+                { { -half_x,  half_y,  half_z }, engine::vec3::left() },
+                { { -half_x,  half_y, -half_z }, engine::vec3::left() },
+                { { -half_x, -half_y, -half_z }, engine::vec3::left() },
+                { { -half_x, -half_y,  half_z }, engine::vec3::left() },
 
-                { {  hx,  hy,  hz }, engine::vec3::right() },
-                { {  hx, -hy,  hz }, engine::vec3::right() },
-                { {  hx, -hy, -hz }, engine::vec3::right() },
-                { {  hx,  hy, -hz }, engine::vec3::right() },
+                { {  half_x,  half_y,  half_z }, engine::vec3::right() },
+                { {  half_x, -half_y,  half_z }, engine::vec3::right() },
+                { {  half_x, -half_y, -half_z }, engine::vec3::right() },
+                { {  half_x,  half_y, -half_z }, engine::vec3::right() },
 
-                { { -hx,  hy, -hz }, engine::vec3::up() },
-                { { -hx,  hy,  hz }, engine::vec3::up() },
-                { {  hx,  hy,  hz }, engine::vec3::up() },
-                { {  hx,  hy, -hz }, engine::vec3::up() },
+                { { -half_x,  half_y, -half_z }, engine::vec3::up() },
+                { { -half_x,  half_y,  half_z }, engine::vec3::up() },
+                { {  half_x,  half_y,  half_z }, engine::vec3::up() },
+                { {  half_x,  half_y, -half_z }, engine::vec3::up() },
 
-                { { -hx, -hy, -hz }, engine::vec3::down() },
-                { {  hx, -hy, -hz }, engine::vec3::down() },
-                { {  hx, -hy,  hz }, engine::vec3::down() },
-                { { -hx, -hy,  hz }, engine::vec3::down() },
+                { { -half_x, -half_y, -half_z }, engine::vec3::down() },
+                { {  half_x, -half_y, -half_z }, engine::vec3::down() },
+                { {  half_x, -half_y,  half_z }, engine::vec3::down() },
+                { { -half_x, -half_y,  half_z }, engine::vec3::down() },
             },
             {
                 {  0,  1,  2 }, {  2,  3,  0 }, // front face
@@ -77,47 +77,59 @@ namespace editor
     {
         geometry sphere;
 
-        const float hr    = radius / 2.0f;
-        const float stack = engine::pi() / static_cast<float>(rings);
-        const float slice = engine::pi() / static_cast<float>(segments) * 2.0f;
+        const auto    phi_step = engine::pi() / static_cast<float>(rings);
+        const auto  theta_step = engine::pi() / static_cast<float>(segments) * 2.0f;
+        const auto half_radius = radius       / 2.0f;
 
         for (uint32_t i = 0; i <= rings; ++i)
         {
-            const float phi = stack * static_cast<float>(i);
-
-            const float sin_phi = hr * engine::sin(phi);
-            const float cos_phi = hr * engine::cos(phi);
+            const auto     phi = phi_step    * static_cast<float>(i);
+            const auto sin_phi = half_radius * engine::sin(phi);
+            const auto cos_phi = half_radius * engine::cos(phi);
 
             for (uint32_t j = 0; j <= segments; ++j)
             {
-                const float theta = static_cast<float>(j) * slice;
+                const auto theta = theta_step * static_cast<float>(j);
 
                 const engine::vec3 position
                 {
                     sin_phi * engine::cos(theta), cos_phi,
-                    sin_phi * engine::sin(theta),
+                    sin_phi * engine::sin(theta)
                 };
 
                 sphere.vertices.emplace_back(position, position.normalized());
             }
         }
 
+        create_faces(sphere, segments, rings);
+
+        return sphere;
+    }
+
+    geometry Primitives::create_capsule(const uint32_t segments, const uint32_t rings, const float radius, const float height)
+    {
+        geometry capsule;
+
+        return capsule;
+    }
+
+    void Primitives::create_faces(geometry& geometry, const uint32_t segments, const uint32_t rings, const uint32_t offset)
+    {
         for (uint32_t i = 0; i < rings; ++i)
         {
-            for (uint32_t j = 0; j <  segments; ++j)
+            for (uint32_t j = 0; j < segments; ++j)
             {
                 const uint32_t next = segments + 1;
 
-                const uint32_t top_left     = i * next + j;
+                const uint32_t top_left     = offset   + i * next + j;
                 const uint32_t top_right    = top_left + 1;
-                const uint32_t bottom_left  = (i + 1) * next + j;
+
+                const uint32_t bottom_left  = offset + (i + 1) * next + j;
                 const uint32_t bottom_right = bottom_left + 1;
 
-                sphere.faces.emplace_back(top_left,  top_right,    bottom_left);
-                sphere.faces.emplace_back(top_right, bottom_right, bottom_left);
+                geometry.faces.emplace_back(top_left,  top_right,    bottom_left);
+                geometry.faces.emplace_back(top_right, bottom_right, bottom_left);
             }
         }
-
-        return sphere;
     }
 }
