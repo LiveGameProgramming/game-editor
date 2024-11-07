@@ -73,9 +73,9 @@ namespace editor
         };
     }
 
-    geometry Primitives::create_sphere(const uint32_t segments, const uint32_t rings, const float radius)
+    primitive Primitives::create_sphere(const uint32_t segments, const uint32_t rings, const float radius)
     {
-        geometry sphere;
+        primitive sphere;
 
         #pragma region Constants
 
@@ -95,24 +95,18 @@ namespace editor
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                const engine::vec3 position
-                {
-                    sin_phi * engine::cos(theta), cos_phi,
-                    sin_phi * engine::sin(theta)
-                };
-
-                sphere.vertices.emplace_back(position, position.normalized());
+                sphere.create_vertex({ sin_phi * engine::cos(theta), cos_phi, sin_phi * engine::sin(theta) });
             }
         }
 
-        create_faces(sphere, segments, rings);
+        sphere.generate_faces(segments, rings);
 
         return sphere;
     }
 
-    geometry Primitives::create_capsule(const uint32_t segments, const uint32_t rings, const float radius, const float height)
+    primitive Primitives::create_capsule(const uint32_t segments, const uint32_t rings, const float radius, const float height)
     {
-        geometry capsule;
+        primitive capsule;
 
         #pragma region Constants
 
@@ -136,13 +130,7 @@ namespace editor
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                const engine::vec3 position
-                {
-                    sin_phi * engine::cos(theta), cos_phi + half_height,
-                    sin_phi * engine::sin(theta)
-                };
-
-                capsule.vertices.emplace_back(position, position.normalized());
+                capsule.create_vertex({ sin_phi * engine::cos(theta), cos_phi + half_height, sin_phi * engine::sin(theta) });
             }
         }
 
@@ -157,13 +145,7 @@ namespace editor
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                const engine::vec3 position
-                {
-                    half_radius * engine::cos(theta), y,
-                    half_radius * engine::sin(theta)
-                };
-
-                capsule.vertices.emplace_back(position, position.normalized());
+                capsule.create_vertex({ half_radius * engine::cos(theta), y, half_radius * engine::sin(theta) });
             }
         }
 
@@ -180,44 +162,18 @@ namespace editor
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                const engine::vec3 position
-                {
-                    sin_phi * engine::sin(theta), -half_height - cos_phi,
-                    sin_phi * engine::cos(theta)
-                };
-
-                capsule.vertices.emplace_back(position, position.normalized());
+                capsule.create_vertex({ sin_phi * engine::sin(theta), -half_height - cos_phi, sin_phi * engine::cos(theta) });
             }
         }
 
         #pragma endregion
 
-        const auto offset =  (segments + 1) * (half_rings + 1);
+        const auto offset = (segments + 1) * (half_rings + 1);
 
-        create_faces(capsule, segments, half_rings);
-        create_faces(capsule, segments, half_rings, offset);
-        create_faces(capsule, segments, half_rings, offset * 2);
+        capsule.generate_faces(segments, half_rings);
+        capsule.generate_faces(segments, half_rings, offset);
+        capsule.generate_faces(segments, half_rings, offset * 2);
 
         return capsule;
-    }
-
-    void Primitives::create_faces(geometry& geometry, const uint32_t segments, const uint32_t rings, const uint32_t offset)
-    {
-        for (uint32_t i = 0; i < rings; ++i)
-        {
-            for (uint32_t j = 0; j < segments; ++j)
-            {
-                const uint32_t next = segments + 1;
-
-                const uint32_t top_left     = offset   + i * next + j;
-                const uint32_t top_right    = top_left + 1;
-
-                const uint32_t bottom_left  = offset + (i + 1) * next + j;
-                const uint32_t bottom_right = bottom_left + 1;
-
-                geometry.faces.emplace_back(top_left,  top_right,    bottom_left);
-                geometry.faces.emplace_back(top_right, bottom_right, bottom_left);
-            }
-        }
     }
 }
