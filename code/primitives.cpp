@@ -118,6 +118,7 @@ namespace editor
         const auto theta_step = engine::pi() / static_cast<float>(segments)   * 2.0f;
 
         #pragma endregion
+
         #pragma region Upper  Section
 
         for (uint32_t i = 0; i <= half_rings; ++i)
