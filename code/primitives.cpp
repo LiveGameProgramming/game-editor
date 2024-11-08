@@ -95,7 +95,7 @@ namespace editor
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                sphere.create_vertex({ sin_phi * engine::cos(theta), cos_phi, sin_phi * engine::sin(theta) });
+                sphere.add_vertex({ sin_phi * engine::cos(theta), cos_phi, sin_phi * engine::sin(theta) });
             }
         }
 
@@ -131,7 +131,7 @@ namespace editor
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                capsule.create_vertex({ sin_phi * engine::cos(theta), cos_phi + half_height, sin_phi * engine::sin(theta) });
+                capsule.add_vertex({ sin_phi * engine::cos(theta), cos_phi + half_height, sin_phi * engine::sin(theta) });
             }
         }
 
@@ -146,7 +146,7 @@ namespace editor
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                capsule.create_vertex({ half_radius * engine::cos(theta), y, half_radius * engine::sin(theta) });
+                capsule.add_vertex({ half_radius * engine::cos(theta), y, half_radius * engine::sin(theta) });
             }
         }
 
@@ -163,7 +163,7 @@ namespace editor
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                capsule.create_vertex({ sin_phi * engine::sin(theta), -half_height - cos_phi, sin_phi * engine::cos(theta) });
+                capsule.add_vertex({ sin_phi * engine::sin(theta), -half_height - cos_phi, sin_phi * engine::cos(theta) });
             }
         }
 

@@ -2,9 +2,14 @@
 
 namespace editor
 {
-    void primitive::create_vertex(const engine::vec3& position)
+    void primitive::add_vertex(const engine::vec3& position)
     {
         vertices.emplace_back(position, position.normalized());
+    }
+
+    void primitive::add_triangle(uint32_t a, uint32_t b, uint32_t c)
+    {
+        faces.emplace_back(a, b, c);
     }
 
     void primitive::generate_faces(const uint32_t segments, const uint32_t rings, const uint32_t offset)
@@ -21,8 +26,8 @@ namespace editor
                 const uint32_t bottom_left  = offset + (i + 1) * next + j;
                 const uint32_t bottom_right = bottom_left + 1;
 
-                faces.emplace_back(top_left,  top_right,    bottom_left);
-                faces.emplace_back(top_right, bottom_right, bottom_left);
+                add_triangle(top_left,  top_right,    bottom_left);
+                add_triangle(top_right, bottom_right, bottom_left);
             }
         }
     }
