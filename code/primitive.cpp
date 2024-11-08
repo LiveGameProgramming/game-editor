@@ -14,12 +14,12 @@ namespace editor
 
     void primitive::generate_faces(const uint32_t segments, const uint32_t rings, const uint32_t offset)
     {
+        const uint32_t next = segments + 1;
+
         for (uint32_t i = 0; i < rings; ++i)
         {
             for (uint32_t j = 0; j <  segments; ++j)
             {
-                const uint32_t next = segments + 1;
-
                 const uint32_t top_left     = offset   + i * next + j;
                 const uint32_t top_right    = top_left + 1;
 
