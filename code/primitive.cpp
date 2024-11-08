@@ -7,7 +7,7 @@ namespace editor
         vertices.emplace_back(position, position.normalized());
     }
 
-    void primitive::add_triangle(uint32_t a, uint32_t b, uint32_t c)
+    void primitive::add_face(const uint32_t a, const uint32_t b, const uint32_t c)
     {
         faces.emplace_back(a, b, c);
     }
@@ -26,8 +26,8 @@ namespace editor
                 const uint32_t bottom_left  = offset + (i + 1) * next + j;
                 const uint32_t bottom_right = bottom_left + 1;
 
-                add_triangle(top_left,  top_right,    bottom_left);
-                add_triangle(top_right, bottom_right, bottom_left);
+                add_face(top_left,  top_right,    bottom_left);
+                add_face(top_right, bottom_right, bottom_left);
             }
         }
     }
