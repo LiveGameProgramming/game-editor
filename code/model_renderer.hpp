@@ -1,7 +1,7 @@
 #pragma once
 
-#include "opengl/renderer.hpp"
 #include "opengl/vertex_array.hpp"
+#include "opengl/renderer.hpp"
 
 #include "mat4.hpp"
 #include "rgb.hpp"

@@ -14,7 +14,7 @@ namespace editor
                 { { -half_x, 0.0f,  half_z }, engine::vec3::up() },
                 { {  half_x, 0.0f,  half_z }, engine::vec3::up() },
                 { {  half_x, 0.0f, -half_z }, engine::vec3::up() },
-                { { -half_x, 0.0f, -half_z }, engine::vec3::up() },
+                { { -half_x, 0.0f, -half_z }, engine::vec3::up() }
             },
             {
                 { 0, 1, 2 }, //  first triangle
@@ -60,7 +60,7 @@ namespace editor
                 { { -half_x, -half_y, -half_z }, engine::vec3::down() },
                 { {  half_x, -half_y, -half_z }, engine::vec3::down() },
                 { {  half_x, -half_y,  half_z }, engine::vec3::down() },
-                { { -half_x, -half_y,  half_z }, engine::vec3::down() },
+                { { -half_x, -half_y,  half_z }, engine::vec3::down() }
             },
             {
                 {  0,  1,  2 }, {  2,  3,  0 }, // front face
@@ -131,7 +131,7 @@ namespace editor
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                capsule.add_vertex({ sin_phi * engine::cos(theta), cos_phi + half_height, sin_phi * engine::sin(theta) });
+                capsule.add_vertex({ sin_phi  * engine::cos(theta), cos_phi + half_height, sin_phi * engine::sin(theta) });
             }
         }
 
@@ -140,13 +140,13 @@ namespace editor
 
         for (uint32_t i = 0; i <= half_rings; ++i)
         {
-            const auto y = half_height - height * static_cast<float>(i) / static_cast<float>(half_rings);
+            const auto offset = half_height - height * static_cast<float>(i) / static_cast<float>(half_rings);
 
             for (uint32_t j = 0; j <= segments; ++j)
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                capsule.add_vertex({ half_radius * engine::cos(theta), y, half_radius * engine::sin(theta) });
+                capsule.add_vertex({ half_radius * engine::cos(theta), offset, half_radius * engine::sin(theta) });
             }
         }
 
@@ -163,7 +163,7 @@ namespace editor
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                capsule.add_vertex({ sin_phi * engine::sin(theta), -half_height - cos_phi, sin_phi * engine::cos(theta) });
+                capsule.add_vertex({ sin_phi  * engine::sin(theta), -half_height - cos_phi, sin_phi * engine::cos(theta) });
             }
         }
 

@@ -1,10 +1,8 @@
 #=======================================================================================================================
-project(game_editor)
+add_library(game_editor)
 #=======================================================================================================================
-add_library(${PROJECT_NAME})
+target_include_directories(game_editor PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 #=======================================================================================================================
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-#=======================================================================================================================
-target_link_libraries(${PROJECT_NAME} PRIVATE module_core module_math module_graphics)
-target_sources(${PROJECT_NAME}        PRIVATE primitive.cpp primitives.cpp model_renderer.cpp)
+target_link_libraries(game_editor PRIVATE module_core module_math module_graphics)
+       target_sources(game_editor PRIVATE primitive.cpp primitives.cpp model_renderer.cpp)
 #=======================================================================================================================
