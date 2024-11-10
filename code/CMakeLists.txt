@@ -3,6 +3,6 @@ add_library(editor)
 #=======================================================================================================================
 target_include_directories(editor PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 #=======================================================================================================================
-target_link_libraries(editor PRIVATE module_core module_math module_graphics)
+target_link_libraries(editor PRIVATE core math graphics)
        target_sources(editor PRIVATE primitive.cpp primitives.cpp model_renderer.cpp)
 #=======================================================================================================================
