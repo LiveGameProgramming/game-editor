@@ -7,7 +7,7 @@ namespace editor
         vertices.emplace_back(position, position.normalized());
     }
 
-    void primitive::add_face(const engine::primitives::triangle& triangle)
+    void primitive::add_face(const engine::primitive::triangle& triangle)
     {
         faces.emplace_back(triangle);
     }

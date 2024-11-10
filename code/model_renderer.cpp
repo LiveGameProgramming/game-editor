@@ -1,7 +1,7 @@
 #include "model_renderer.hpp"
 #include "opengl/commands.hpp"
 
-#include "primitives/triangle.hpp"
+#include "primitive/triangle.hpp"
 
 namespace editor
 {
@@ -13,6 +13,6 @@ namespace editor
         assert(vertex_array);
         vertex_array->bind();
 
-        engine::opengl::Commands::draw_indexed(engine::opengl::triangles, engine::primitives::triangle::elements * faces);
+        engine::opengl::Commands::draw_indexed(engine::opengl::triangles, engine::primitive::triangle::elements * faces);
     }
 }
