@@ -1,13 +1,13 @@
 #pragma once
 
-#include "vertex.hpp"
-#include "geometry.hpp"
+#include "base/vertex.hpp"
+#include "base/geometry.hpp"
 
 #include "primitive/triangle.hpp"
 
 namespace editor
 {
-    using geometry = engine::geometry<vertex, engine::primitive::triangle>;
+    using geometry = engine::base::geometry<base::vertex, engine::primitive::triangle>;
 
     struct primitive final : geometry
     {

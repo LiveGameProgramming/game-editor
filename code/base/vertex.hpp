@@ -2,7 +2,7 @@
 
 #include "vec3.hpp"
 
-namespace editor
+namespace editor::base
 {
     struct vertex
     {
