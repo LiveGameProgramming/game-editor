@@ -2,24 +2,24 @@
 
 namespace editor::tools
 {
-    void ShaderConverter::convert(const std::filesystem::path& input, const std::filesystem::path& output)
+    void ShaderConverter::convert(const std::string& filename, const std::string& input, const std::string& output)
     {
         std::vector<std::filesystem::path> files;
 
-        for (const auto& file : std::filesystem::directory_iterator(input.parent_path()))
+        for (const auto& item : std::filesystem::directory_iterator(input))
         {
-            if (file.is_regular_file() && file.path().filename().replace_extension() == input.filename())
+            if (item.is_regular_file() && item.path().stem() == filename)
             {
-                files.push_back(file.path());
+                files.emplace_back(item.path());
             }
         }
 
-        for (const auto& file : files)
+        for (const auto& item : files)
         {
-            const std::string filename = file.filename().string();
+            const std::string name = item.filename().string();
+            const std::string ext  = item.extension().string().erase(0, 1);
 
-            std::string command = std::format("glslangValidator -V -G -S {} -o {} {}", file.extension().string().erase(0, 1), output.string() + filename, input.parent_path().string() + "/" + file.filename().string());
-
+            std::string command = std::format("glslangValidator -V -G -S {} -o {} {}", ext, output + name, input  + name);
             std::system(command.c_str());
         }
     }
