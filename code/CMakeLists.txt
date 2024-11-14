@@ -1,8 +1,9 @@
 #=======================================================================================================================
-add_library(editor)
+add_library(${PROJECT_NAME})
 #=======================================================================================================================
-target_include_directories(editor PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+add_subdirectory(tools)
 #=======================================================================================================================
-target_link_libraries(editor PRIVATE core math graphics)
-       target_sources(editor PRIVATE primitive.cpp primitives.cpp model_renderer.cpp)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+     target_link_libraries(${PROJECT_NAME} PUBLIC core math graphics)
+            target_sources(${PROJECT_NAME} PUBLIC primitive.cpp primitives.cpp model_renderer.cpp)
 #=======================================================================================================================
