@@ -1,5 +1,6 @@
 #include "primitives.hpp"
 #include "functions.hpp"
+#include "constants.hpp"
 
 namespace editor
 {
@@ -79,8 +80,8 @@ namespace editor
 
         #pragma region Constants
 
-        const auto    phi_step = engine::pi() / static_cast<float>(rings);
-        const auto  theta_step = engine::pi() / static_cast<float>(segments) * 2.0f;
+        const auto    phi_step = engine::pi / static_cast<float>(rings);
+        const auto  theta_step = engine::pi / static_cast<float>(segments) * 2.0f;
         const auto half_radius = radius       / 2.0f;
 
         #pragma endregion
@@ -114,8 +115,8 @@ namespace editor
         const auto half_height = height / 2.0f;
         const auto half_radius = radius / 2.0f;
 
-        const auto phi_step   = engine::pi() / static_cast<float>(half_rings) / 2.0f;
-        const auto theta_step = engine::pi() / static_cast<float>(segments)   * 2.0f;
+        const auto phi_step   = engine::pi / static_cast<float>(half_rings) / 2.0f;
+        const auto theta_step = engine::pi / static_cast<float>(segments)   * 2.0f;
 
         #pragma endregion
 
