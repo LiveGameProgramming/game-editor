@@ -17,7 +17,7 @@ namespace editor::tools
         for (const auto& item : files)
         {
             const std::string name = item.filename().string();
-            const std::string ext  = item.extension().string().erase(0, 1);
+                  std::string ext  = item.extension().string(); ext.erase(ext.begin());
 
             std::string command = std::format("glslangValidator -V -G -S {} -o {} {}", ext, output + name, input + name);
             std::system(command.c_str());
