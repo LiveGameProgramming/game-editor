@@ -1,6 +1,6 @@
 #include "primitive.hpp"
 
-namespace editor
+namespace editor::tools
 {
     void primitive::add_vertex(const engine::vec3& position)
     {

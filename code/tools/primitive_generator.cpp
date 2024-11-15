@@ -1,10 +1,11 @@
-#include "primitives.hpp"
+#include "primitive_generator.hpp"
+
 #include "functions.hpp"
 #include "constants.hpp"
 
-namespace editor
+namespace editor::tools
 {
-    geometry Primitives::create_plane(const float x, const float z)
+    geometry PrimitiveGenerator::create_plane(const float x, const float z)
     {
         const float half_x = x / 2.0f;
         const float half_z = z / 2.0f;
@@ -24,7 +25,7 @@ namespace editor
         };
     }
 
-    geometry Primitives::create_box(const float x, const float y, const float z)
+    geometry PrimitiveGenerator::create_box(const float x, const float y, const float z)
     {
         const float half_x = x / 2.0f;
         const float half_y = y / 2.0f;
@@ -74,7 +75,7 @@ namespace editor
         };
     }
 
-    primitive Primitives::create_sphere(const uint32_t segments, const uint32_t rings, const float radius)
+    primitive PrimitiveGenerator::create_sphere(const uint32_t segments, const uint32_t rings, const float radius)
     {
         primitive sphere;
 
@@ -105,7 +106,7 @@ namespace editor
         return sphere;
     }
 
-    primitive Primitives::create_capsule(const uint32_t segments, const uint32_t rings, const float radius, const float height)
+    primitive PrimitiveGenerator::create_capsule(const uint32_t segments, const uint32_t rings, const float radius, const float height)
     {
         primitive capsule;
 
