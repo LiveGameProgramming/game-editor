@@ -1,10 +1,8 @@
 #pragma once
 
-#include "vec3.hpp"
-
-namespace editor::base
+namespace editor::vertex
 {
-    struct vertex
+    struct debug
     {
         engine::vec3 position;
         engine::vec3 extra; // normal | color
