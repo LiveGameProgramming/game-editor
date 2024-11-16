@@ -2,7 +2,7 @@
 
 #include "primitive.hpp"
 
-namespace tools
+namespace editor::tools
 {
     class PrimitiveGenerator
     {

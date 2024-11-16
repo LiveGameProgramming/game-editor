@@ -2,7 +2,7 @@
 
 #include "core/vertex/debug.hpp"
 
-namespace tools
+namespace editor::tools
 {
     using geometry = core::base::geometry<core::vertex::debug, core::primitive::triangle>;
 

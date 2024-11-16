@@ -3,7 +3,7 @@
 #include "math/functions.hpp"
 #include "math/constants.hpp"
 
-namespace tools
+namespace editor::tools
 {
     geometry PrimitiveGenerator::create_plane(const float x, const float z)
     {

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace tools
+namespace editor::tools
 {
     class ShaderConverter
     {
