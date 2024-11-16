@@ -2,7 +2,7 @@
 
 namespace editor::tools
 {
-    void primitive::add_vertex(const engine::math::vec3& position)
+    void primitive::add_vertex(const math::vec3& position)
     {
         vertices.emplace_back(position, position.normalized());
     }

@@ -8,7 +8,7 @@ namespace editor::tools
 
     struct primitive final : geometry
     {
-        void add_vertex(const engine::math::vec3& position);
+        void add_vertex(const math::vec3& position);
         void   add_face(const engine::core::primitive::triangle& triangle);
 
         void generate_faces(uint32_t segments, uint32_t rings, uint32_t offset = 0);
