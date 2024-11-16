@@ -1,13 +1,13 @@
 #include "primitive.hpp"
 
-namespace tools
+namespace editor::tools
 {
-    void primitive::add_vertex(const math::vec3& position)
+    void primitive::add_vertex(const engine::math::vec3& position)
     {
         vertices.emplace_back(position, position.normalized());
     }
 
-    void primitive::add_face(const core::primitive::triangle& triangle)
+    void primitive::add_face(const engine::core::primitive::triangle& triangle)
     {
         faces.emplace_back(triangle);
     }

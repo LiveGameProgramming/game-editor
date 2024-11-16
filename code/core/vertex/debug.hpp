@@ -4,7 +4,7 @@ namespace editor::core::vertex
 {
     struct debug
     {
-        math::vec3 position;
-        math::vec3 extra; // normal | color
+        engine::math::vec3 position;
+        engine::math::vec3 extra; // normal | color
     };
 }

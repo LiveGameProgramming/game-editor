@@ -13,10 +13,10 @@ namespace editor::tools
         return
         {
             {
-                { { -half_x, 0.0f,  half_z }, math::vec3::up() },
-                { {  half_x, 0.0f,  half_z }, math::vec3::up() },
-                { {  half_x, 0.0f, -half_z }, math::vec3::up() },
-                { { -half_x, 0.0f, -half_z }, math::vec3::up() }
+                { { -half_x, 0.0f,  half_z }, engine::math::vec3::up() },
+                { {  half_x, 0.0f,  half_z }, engine::math::vec3::up() },
+                { {  half_x, 0.0f, -half_z }, engine::math::vec3::up() },
+                { { -half_x, 0.0f, -half_z }, engine::math::vec3::up() }
             },
             {
                 { 0, 1, 2 }, //  first triangle
@@ -34,35 +34,35 @@ namespace editor::tools
         return
         {
             {
-                { { -half_x, -half_y,  half_z }, math::vec3::front() },
-                { {  half_x, -half_y,  half_z }, math::vec3::front() },
-                { {  half_x,  half_y,  half_z }, math::vec3::front() },
-                { { -half_x,  half_y,  half_z }, math::vec3::front() },
+                { { -half_x, -half_y,  half_z }, engine::math::vec3::front() },
+                { {  half_x, -half_y,  half_z }, engine::math::vec3::front() },
+                { {  half_x,  half_y,  half_z }, engine::math::vec3::front() },
+                { { -half_x,  half_y,  half_z }, engine::math::vec3::front() },
 
-                { { -half_x, -half_y, -half_z }, math::vec3::back() },
-                { { -half_x,  half_y, -half_z }, math::vec3::back() },
-                { {  half_x,  half_y, -half_z }, math::vec3::back() },
-                { {  half_x, -half_y, -half_z }, math::vec3::back() },
+                { { -half_x, -half_y, -half_z }, engine::math::vec3::back() },
+                { { -half_x,  half_y, -half_z }, engine::math::vec3::back() },
+                { {  half_x,  half_y, -half_z }, engine::math::vec3::back() },
+                { {  half_x, -half_y, -half_z }, engine::math::vec3::back() },
 
-                { { -half_x,  half_y,  half_z }, math::vec3::left() },
-                { { -half_x,  half_y, -half_z }, math::vec3::left() },
-                { { -half_x, -half_y, -half_z }, math::vec3::left() },
-                { { -half_x, -half_y,  half_z }, math::vec3::left() },
+                { { -half_x,  half_y,  half_z }, engine::math::vec3::left() },
+                { { -half_x,  half_y, -half_z }, engine::math::vec3::left() },
+                { { -half_x, -half_y, -half_z }, engine::math::vec3::left() },
+                { { -half_x, -half_y,  half_z }, engine::math::vec3::left() },
 
-                { {  half_x,  half_y,  half_z }, math::vec3::right() },
-                { {  half_x, -half_y,  half_z }, math::vec3::right() },
-                { {  half_x, -half_y, -half_z }, math::vec3::right() },
-                { {  half_x,  half_y, -half_z }, math::vec3::right() },
+                { {  half_x,  half_y,  half_z }, engine::math::vec3::right() },
+                { {  half_x, -half_y,  half_z }, engine::math::vec3::right() },
+                { {  half_x, -half_y, -half_z }, engine::math::vec3::right() },
+                { {  half_x,  half_y, -half_z }, engine::math::vec3::right() },
 
-                { { -half_x,  half_y, -half_z }, math::vec3::up() },
-                { { -half_x,  half_y,  half_z }, math::vec3::up() },
-                { {  half_x,  half_y,  half_z }, math::vec3::up() },
-                { {  half_x,  half_y, -half_z }, math::vec3::up() },
+                { { -half_x,  half_y, -half_z }, engine::math::vec3::up() },
+                { { -half_x,  half_y,  half_z }, engine::math::vec3::up() },
+                { {  half_x,  half_y,  half_z }, engine::math::vec3::up() },
+                { {  half_x,  half_y, -half_z }, engine::math::vec3::up() },
 
-                { { -half_x, -half_y, -half_z }, math::vec3::down() },
-                { {  half_x, -half_y, -half_z }, math::vec3::down() },
-                { {  half_x, -half_y,  half_z }, math::vec3::down() },
-                { { -half_x, -half_y,  half_z }, math::vec3::down() }
+                { { -half_x, -half_y, -half_z }, engine::math::vec3::down() },
+                { {  half_x, -half_y, -half_z }, engine::math::vec3::down() },
+                { {  half_x, -half_y,  half_z }, engine::math::vec3::down() },
+                { { -half_x, -half_y,  half_z }, engine::math::vec3::down() }
             },
             {
                 {  0,  1,  2 }, {  2,  3,  0 }, // front face
@@ -81,23 +81,23 @@ namespace editor::tools
 
         #pragma region Constants
 
-        const auto    phi_step = math::pi / static_cast<float>(rings);
-        const auto  theta_step = math::pi / static_cast<float>(segments) * 2.0f;
-        const auto half_radius = radius     / 2.0f;
+        const auto    phi_step = engine::math::pi / static_cast<float>(rings);
+        const auto  theta_step = engine::math::pi / static_cast<float>(segments) * 2.0f;
+        const auto half_radius = radius           / 2.0f;
 
         #pragma endregion
 
         for (uint32_t i = 0; i <= rings; ++i)
         {
             const auto     phi = phi_step    * static_cast<float>(i);
-            const auto sin_phi = half_radius * math::sin(phi);
-            const auto cos_phi = half_radius * math::cos(phi);
+            const auto sin_phi = half_radius * engine::math::sin(phi);
+            const auto cos_phi = half_radius * engine::math::cos(phi);
 
             for (uint32_t j = 0; j <= segments; ++j)
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                sphere.add_vertex({ sin_phi * math::cos(theta), cos_phi, sin_phi * math::sin(theta) });
+                sphere.add_vertex({ sin_phi * engine::math::cos(theta), cos_phi, sin_phi * engine::math::sin(theta) });
             }
         }
                sphere.generate_faces(segments, rings);
@@ -114,8 +114,8 @@ namespace editor::tools
         const auto half_height = height / 2.0f;
         const auto half_radius = radius / 2.0f;
 
-        const auto phi_step   = math::pi / static_cast<float>(half_rings) / 2.0f;
-        const auto theta_step = math::pi / static_cast<float>(segments)   * 2.0f;
+        const auto phi_step   = engine::math::pi / static_cast<float>(half_rings) / 2.0f;
+        const auto theta_step = engine::math::pi / static_cast<float>(segments)   * 2.0f;
 
         #pragma endregion
 
@@ -124,14 +124,14 @@ namespace editor::tools
         for (uint32_t i = 0; i <= half_rings; ++i)
         {
             const auto     phi = phi_step    * static_cast<float>(i);
-            const auto sin_phi = half_radius * math::sin(phi);
-            const auto cos_phi = half_radius * math::cos(phi);
+            const auto sin_phi = half_radius * engine::math::sin(phi);
+            const auto cos_phi = half_radius * engine::math::cos(phi);
 
             for (uint32_t j = 0; j <= segments; ++j)
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                capsule.add_vertex({ sin_phi  * math::cos(theta), cos_phi + half_height, sin_phi * math::sin(theta) });
+                capsule.add_vertex({ sin_phi  * engine::math::cos(theta), cos_phi + half_height, sin_phi * engine::math::sin(theta) });
             }
         }
 
@@ -146,7 +146,7 @@ namespace editor::tools
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                capsule.add_vertex({ half_radius * math::cos(theta), offset, half_radius * math::sin(theta) });
+                capsule.add_vertex({ half_radius * engine::math::cos(theta), offset, half_radius * engine::math::sin(theta) });
             }
         }
 
@@ -156,14 +156,14 @@ namespace editor::tools
         for (uint32_t i = 0; i <= half_rings; ++i)
         {
             const auto     phi = phi_step    * static_cast<float>(i);
-            const auto sin_phi = half_radius * math::sin(phi);
-            const auto cos_phi = half_radius * math::cos(phi);
+            const auto sin_phi = half_radius * engine::math::sin(phi);
+            const auto cos_phi = half_radius * engine::math::cos(phi);
 
             for (uint32_t j = 0; j <= segments; ++j)
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                capsule.add_vertex({ sin_phi  * math::sin(theta), -half_height - cos_phi, sin_phi * math::cos(theta) });
+                capsule.add_vertex({ sin_phi  * engine::math::sin(theta), -half_height - cos_phi, sin_phi * engine::math::cos(theta) });
             }
         }
 
