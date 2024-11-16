@@ -83,7 +83,7 @@ namespace editor::tools
 
         const auto    phi_step = engine::pi / static_cast<float>(rings);
         const auto  theta_step = engine::pi / static_cast<float>(segments) * 2.0f;
-        const auto half_radius = radius       / 2.0f;
+        const auto half_radius = radius     / 2.0f;
 
         #pragma endregion
 
@@ -100,9 +100,7 @@ namespace editor::tools
                 sphere.add_vertex({ sin_phi * engine::cos(theta), cos_phi, sin_phi * engine::sin(theta) });
             }
         }
-
-        sphere.generate_faces(segments, rings);
-
+               sphere.generate_faces(segments, rings);
         return sphere;
     }
 

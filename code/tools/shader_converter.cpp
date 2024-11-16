@@ -8,7 +8,10 @@ namespace editor::tools
 
         for (const auto& item : std::filesystem::directory_iterator(input))
         {
-            if (item.is_regular_file() && item.path().stem() == filename)
+            if (!item.is_regular_file())
+                continue;
+
+            if (item.path().stem() == filename)
             {
                 files.emplace_back(item.path());
             }
