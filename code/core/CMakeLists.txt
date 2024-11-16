@@ -1,4 +1,4 @@
 #=======================================================================================================================
-target_include_directories(editor              PUBLIC ..)
-     target_link_libraries(editor PRIVATE core PUBLIC math)
+target_include_directories(editor PUBLIC ..)
+     target_link_libraries(editor PUBLIC PRIVATE core)
 #=======================================================================================================================
