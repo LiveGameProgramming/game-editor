@@ -1,6 +1,6 @@
 #pragma once
 
-namespace editor::vertex
+namespace editor::core::vertex
 {
     struct debug
     {

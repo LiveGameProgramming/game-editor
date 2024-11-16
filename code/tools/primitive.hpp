@@ -1,10 +1,10 @@
 #pragma once
 
-#include "vertex/debug.hpp"
+#include "core/vertex/debug.hpp"
 
 namespace editor::tools
 {
-    using geometry = engine::base::geometry<vertex::debug, engine::primitive::triangle>;
+    using geometry = engine::base::geometry<core::vertex::debug, engine::primitive::triangle>;
 
     struct primitive    final : geometry
     {
