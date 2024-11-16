@@ -1,9 +1,9 @@
 #include "primitive_generator.hpp"
 
-#include "functions.hpp"
-#include "constants.hpp"
+#include "math/functions.hpp"
+#include "math/constants.hpp"
 
-namespace editor::tools
+namespace tools
 {
     geometry PrimitiveGenerator::create_plane(const float x, const float z)
     {
@@ -13,10 +13,10 @@ namespace editor::tools
         return
         {
             {
-                { { -half_x, 0.0f,  half_z }, engine::vec3::up() },
-                { {  half_x, 0.0f,  half_z }, engine::vec3::up() },
-                { {  half_x, 0.0f, -half_z }, engine::vec3::up() },
-                { { -half_x, 0.0f, -half_z }, engine::vec3::up() }
+                { { -half_x, 0.0f,  half_z }, math::vec3::up() },
+                { {  half_x, 0.0f,  half_z }, math::vec3::up() },
+                { {  half_x, 0.0f, -half_z }, math::vec3::up() },
+                { { -half_x, 0.0f, -half_z }, math::vec3::up() }
             },
             {
                 { 0, 1, 2 }, //  first triangle
@@ -34,25 +34,25 @@ namespace editor::tools
         return
         {
             {
-                { { -half_x, -half_y,  half_z }, engine::vec3::front() },
-                { {  half_x, -half_y,  half_z }, engine::vec3::front() },
-                { {  half_x,  half_y,  half_z }, engine::vec3::front() },
-                { { -half_x,  half_y,  half_z }, engine::vec3::front() },
+                { { -half_x, -half_y,  half_z }, math::vec3::front() },
+                { {  half_x, -half_y,  half_z }, math::vec3::front() },
+                { {  half_x,  half_y,  half_z }, math::vec3::front() },
+                { { -half_x,  half_y,  half_z }, math::vec3::front() },
 
-                { { -half_x, -half_y, -half_z }, engine::vec3::back() },
-                { { -half_x,  half_y, -half_z }, engine::vec3::back() },
-                { {  half_x,  half_y, -half_z }, engine::vec3::back() },
-                { {  half_x, -half_y, -half_z }, engine::vec3::back() },
+                { { -half_x, -half_y, -half_z }, math::vec3::back() },
+                { { -half_x,  half_y, -half_z }, math::vec3::back() },
+                { {  half_x,  half_y, -half_z }, math::vec3::back() },
+                { {  half_x, -half_y, -half_z }, math::vec3::back() },
 
-                { { -half_x,  half_y,  half_z }, engine::vec3::left() },
-                { { -half_x,  half_y, -half_z }, engine::vec3::left() },
-                { { -half_x, -half_y, -half_z }, engine::vec3::left() },
-                { { -half_x, -half_y,  half_z }, engine::vec3::left() },
+                { { -half_x,  half_y,  half_z }, math::vec3::left() },
+                { { -half_x,  half_y, -half_z }, math::vec3::left() },
+                { { -half_x, -half_y, -half_z }, math::vec3::left() },
+                { { -half_x, -half_y,  half_z }, math::vec3::left() },
 
-                { {  half_x,  half_y,  half_z }, engine::vec3::right() },
-                { {  half_x, -half_y,  half_z }, engine::vec3::right() },
-                { {  half_x, -half_y, -half_z }, engine::vec3::right() },
-                { {  half_x,  half_y, -half_z }, engine::vec3::right() },
+                { {  half_x,  half_y,  half_z }, math::vec3::right() },
+                { {  half_x, -half_y,  half_z }, math::vec3::right() },
+                { {  half_x, -half_y, -half_z }, math::vec3::right() },
+                { {  half_x,  half_y, -half_z }, math::vec3::right() },
 
                 { { -half_x,  half_y, -half_z }, engine::vec3::up() },
                 { { -half_x,  half_y,  half_z }, engine::vec3::up() },
