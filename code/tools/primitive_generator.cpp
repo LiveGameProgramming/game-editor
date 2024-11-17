@@ -78,8 +78,8 @@ namespace tools
 
         #pragma region Constants
 
-        const auto    phi_step = math::pi / static_cast<float>(rings); radius /= 2.0f;
-        const auto  theta_step = math::pi / static_cast<float>(segments)       * 2.0f;
+        const auto   phi_step = math::pi / static_cast<float>(rings); radius /= 2.0f;
+        const auto theta_step = math::pi / static_cast<float>(segments)       * 2.0f;
 
         #pragma endregion
 
@@ -110,8 +110,8 @@ namespace tools
         radius /= 2.0f; rings /= 2;
         const auto half_height = height / 2.0f;
 
-        const auto phi_step   = math::pi / static_cast<float>(rings) / 2.0f;
-        const auto theta_step = math::pi / static_cast<float>(segments)   * 2.0f;
+        const auto phi_step    = math::pi / static_cast<float>(rings)    / 2.0f;
+        const auto theta_step  = math::pi / static_cast<float>(segments) * 2.0f;
 
         #pragma endregion
 
@@ -119,9 +119,9 @@ namespace tools
 
         for (uint32_t i = 0; i <= rings; ++i)
         {
-            const auto     phi = phi_step    * static_cast<float>(i);
-            const auto sin_phi = radius * math::sin(phi);
-            const auto cos_phi = radius * math::cos(phi);
+            const auto     phi = phi_step * static_cast<float>(i);
+            const auto sin_phi =   radius * math::sin(phi);
+            const auto cos_phi =   radius * math::cos(phi);
 
             for (uint32_t j = 0; j <= segments; ++j)
             {
@@ -142,7 +142,7 @@ namespace tools
             {
                 const auto theta = theta_step * static_cast<float>(j);
 
-                capsule.add_vertex({ radius * math::cos(theta), offset, radius * math::sin(theta) });
+                capsule.add_vertex({  radius  * math::cos(theta), offset, radius * math::sin(theta) });
             }
         }
 
@@ -151,9 +151,9 @@ namespace tools
 
         for (uint32_t i = 0; i <= rings; ++i)
         {
-            const auto     phi = phi_step    * static_cast<float>(i);
-            const auto sin_phi = radius * math::sin(phi);
-            const auto cos_phi = radius * math::cos(phi);
+            const auto     phi = phi_step * static_cast<float>(i);
+            const auto sin_phi =   radius * math::sin(phi);
+            const auto cos_phi =   radius * math::cos(phi);
 
             for (uint32_t j = 0; j <= segments; ++j)
             {
