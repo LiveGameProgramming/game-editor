@@ -19,8 +19,8 @@ namespace tools
 
         for (const auto& item : files)
         {
-            const std::string name = item.filename().string();
-                  std::string ext  = item.extension().string(); ext.erase(ext.begin());
+             const auto name = item.filename().string();
+                   auto ext  = item.extension().string(); ext.erase(ext.begin());
 
             std::string command = std::format("glslangValidator -V -G -S {} -o {} {}", ext, output + name, input + name);
             std::system(command.c_str());
