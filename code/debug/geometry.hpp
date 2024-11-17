@@ -4,5 +4,5 @@
 
 namespace debug
 {
-    using geometry = core::base::geometry<vertex, core::primitive::triangle>;
+    using geometry = core::base::geometry<vertex, primitive::triangle>;
 }

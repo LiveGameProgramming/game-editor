@@ -1,18 +1,18 @@
-#include "primitive.hpp"
+#include "primitive_geometry.hpp"
 
 namespace tools
 {
-    void primitive::add_vertex(const math::vec3& position)
+    void primitive_geometry::add_vertex(const math::vec3& position)
     {
         vertices.emplace_back(position, position.normalized());
     }
 
-    void primitive::add_face(const core::primitive::triangle& triangle)
+    void primitive_geometry::add_face(const primitive::triangle& triangle)
     {
         faces.emplace_back(triangle);
     }
 
-    void primitive::generate_faces(const uint32_t segments, const uint32_t rings, const uint32_t offset)
+    void primitive_geometry::generate_faces(const uint32_t segments, const uint32_t rings, const uint32_t offset)
     {
         assert(vertices.empty() == false);
 

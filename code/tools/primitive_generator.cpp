@@ -75,9 +75,9 @@ namespace tools
         };
     }
 
-    primitive PrimitiveGenerator::create_sphere(const uint32_t segments, const uint32_t rings, const float radius)
+    primitive_geometry PrimitiveGenerator::create_sphere(const uint32_t segments, const uint32_t rings, const float radius)
     {
-        primitive sphere;
+        primitive_geometry sphere;
 
         #pragma region Constants
 
@@ -104,9 +104,9 @@ namespace tools
         return sphere;
     }
 
-    primitive PrimitiveGenerator::create_capsule(const uint32_t segments, const uint32_t rings, const float radius, const float height)
+    primitive_geometry PrimitiveGenerator::create_capsule(const uint32_t segments, const uint32_t rings, const float radius, const float height)
     {
-        primitive capsule;
+        primitive_geometry capsule;
 
         #pragma region Constants
 
