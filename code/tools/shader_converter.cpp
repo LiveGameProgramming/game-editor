@@ -1,6 +1,6 @@
 #include "shader_converter.hpp"
 
-namespace editor::tools
+namespace tools
 {
     void ShaderConverter::convert(const std::string& filename, const std::string& input, const std::string& output)
     {
