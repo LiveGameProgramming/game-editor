@@ -5,7 +5,7 @@
 
 namespace tools
 {
-    core::base::geometry<core::vertex::debug, core::primitive::triangle> PrimitiveGenerator::create_plane(const float x, const float z)
+    debug::geometry PrimitiveGenerator::create_plane(const float x, const float z)
     {
         const float half_x = x / 2.0f;
         const float half_z = z / 2.0f;
@@ -25,7 +25,7 @@ namespace tools
         };
     }
 
-    core::base::geometry<core::vertex::debug, core::primitive::triangle> PrimitiveGenerator::create_box(const float x, const float y, const float z)
+    debug::geometry PrimitiveGenerator::create_box(const float x, const float y, const float z)
     {
         const float half_x = x / 2.0f;
         const float half_y = y / 2.0f;

@@ -1,10 +1,10 @@
 #pragma once
 
-#include "core/vertex/debug.hpp"
+#include "debug/geometry.hpp"
 
 namespace tools
 {
-    struct primitive final  : core::base::geometry<core::vertex::debug, core::primitive::triangle>
+    struct primitive final : debug::geometry
     {
         void add_vertex(const math::vec3& position);
         void   add_face(const core::primitive::triangle& triangle);

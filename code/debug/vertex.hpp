@@ -1,8 +1,8 @@
 #pragma once
 
-namespace core::vertex
+namespace debug
 {
-    struct debug
+    struct vertex
     {
         math::vec3 position;
         math::vec3 extra; // normal | color
