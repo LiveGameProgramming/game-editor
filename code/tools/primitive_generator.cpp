@@ -96,7 +96,8 @@ namespace tools
                 sphere.add_vertex({ sin_phi * math::cos(theta), cos_phi, sin_phi * math::sin(theta) });
             }
         }
-               sphere.generate_faces(segments, rings);
+
+        sphere.generate_faces(segments, rings);
         return sphere;
     }
 
